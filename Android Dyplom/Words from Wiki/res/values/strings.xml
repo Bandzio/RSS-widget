@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, MainActivity!</string>
-    <string name="app_name">Words from Wiki</string>
+	<string name="hello">Hello World, MainActivity!</string>
+	<string name="app_name">Words from Wiki</string>
+	<string name="spinner_prompt">Wybierz kategorie</string>
+	<string-array name="category_spinner">
+		<item>Dom</item>
+		<item>Czesci ciala</item>
+		<item>Owoce</item>
+		<item>Ubrania</item>
+	</string-array>
+	<string-array name="words">
+		<item>Milk</item>
+		<item>Chleb</item>
+		<item>Woda</item>
+		<item>Knife</item>
+		<item>Krawat</item>
+		<item>Wanna</item>
+		<item>Mydlo</item>
+		<item>kawa</item>
+		<item>herbata</item>
+	</string-array>
 </resources>
