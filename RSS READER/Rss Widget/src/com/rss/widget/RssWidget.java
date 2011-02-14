@@ -32,12 +32,17 @@ public class RssWidget extends AppWidgetProvider {
 	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
 			int[] appWidgetIds) {
 		//super.onUpdate(context, appWidgetManager, appWidgetIds);
-		Log.v(tag, "onUpdate call");
+		Log.v(tag, "onUpdate call v");
+		Log.i(tag, "onUpdate call i");
+		Log.d(tag, "onUpdate call d");
+		
+		Intent serviceIntent = new Intent(context,RssService.class );
+		context.startService(serviceIntent);
 	}
 	
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		//super.onReceive(context, intent);
+		super.onReceive(context, intent);
 		Log.v(tag, "onReceive call");
 	}
 	

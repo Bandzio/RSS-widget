@@ -67,9 +67,9 @@ public class RssConfigureActivity extends Activity {
 			//udpate view
 			AppWidgetManager widgetManager = AppWidgetManager.getInstance(RssConfigureActivity.this);
 			RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.rss_layout);
-			remoteViews.setTextViewText(R.id.bdw_w_name, mTextView.getText());
+		//	remoteViews.setTextViewText(R.id.bdw_w_name, mTextView.getText());
 			
-			widgetManager.updateAppWidget(mAppWidgetId, remoteViews);
+			//widgetManager.updateAppWidget(mAppWidgetId, remoteViews);
 			
 			//return intent
 			Intent returnIntent = new Intent();

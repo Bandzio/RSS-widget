@@ -16,7 +16,9 @@
 				<action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"></action>
 			</intent-filter>
 		</activity>
+		<service android:name="RssService"></service>
 	</application>
 
 
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
 </manifest> 
