@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World!</string>
+	<string name="app_name">Rss Widget</string>
+	<string name="prompt">&quot;android_prompt&quot;</string>
+	<string-array name="rss_source">
+		<item>Real Madrid</item>
+		<item>Pilka.pl</item>
+	</string-array>
+</resources>
