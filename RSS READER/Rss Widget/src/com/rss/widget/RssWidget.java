@@ -1,10 +1,13 @@
 package com.rss.widget;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
+import android.widget.RemoteViews;
 
 public class RssWidget extends AppWidgetProvider {
 
@@ -38,6 +41,7 @@ public class RssWidget extends AppWidgetProvider {
 		
 		Intent serviceIntent = new Intent(context,RssService.class );
 		context.startService(serviceIntent);
+		
 	}
 	
 	@Override

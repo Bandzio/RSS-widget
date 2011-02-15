@@ -17,7 +17,11 @@
 			</intent-filter>
 		</activity>
 		<service android:name="RssService"></service>
-	</application>
+	
+<activity android:name="ShowRssItemInList"><intent-filter><action android:name="android.intent.action.VIEW"></action>
+</intent-filter>
+</activity>
+</application>
 
 
 <uses-permission android:name="android.permission.INTERNET"></uses-permission>

@@ -29,9 +29,10 @@
 			android:background="#FF6633" android:gravity="center" />
 	
 	--></LinearLayout>
-	
-	<TextView android:id="@+id/bdw_w_date" android:layout_width="fill_parent"
-		android:layout_height="30dp" android:text="1/1/2000"
+		
+		
+		<TextView android:id="@+id/bdw_w_date" android:layout_width="fill_parent"
+		android:layout_height="30dp" android:text="Show Rss"
 		android:background="@drawable/box1" android:gravity="center" />
 
 </LinearLayout>

@@ -19,6 +19,7 @@ import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -37,13 +38,9 @@ public class RssService extends IntentService{
 	@Override
 	protected void onHandleIntent(Intent intent) {
 		Log.v(tag, "onHandleIntent call");
-		//TODO : pobrac RSS 
 		
 		rssFeed = getRSS(URL);
-		
 		showFeed();
-		
-		
 		
 	}
 
@@ -60,7 +57,7 @@ public class RssService extends IntentService{
 		StringBuilder sb = new StringBuilder();
 		
 		for (RssItem rssItem : allItem) {
-			sb.append(rssItem.getRssItemTitle()).append("  ");
+			sb.append(rssItem.getRssItemTitle()).append(" * ");
 		}
 		Log.v("item", sb.toString());
 		
@@ -73,10 +70,11 @@ public class RssService extends IntentService{
 	
 		appWidgetManager.updateAppWidget(componentName, remoteView);
 		
+		Intent intent = new Intent(this, ShowRssItemInList.class);
 		
-		//Intent intent = new Intent(this.getPackageName(), ShowRssItemInList.class);
-		//PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-		remoteView.setOnClickPendingIntent(R.id.bdw_w_days, pendingIntent);
+		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+		remoteView.setOnClickPendingIntent(R.id.bdw_w_date, pendingIntent);
+		appWidgetManager.updateAppWidget(componentName, remoteView); // TEGO MI BRAKOWA£O !!!!!!!!!!! POCZYTAJ CO TO !!!!!!
 		
 	}
 
