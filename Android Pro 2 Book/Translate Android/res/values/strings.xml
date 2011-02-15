@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="app_name">Translator</string>
+<string name="input">input</string>
+<string name="translation">translation</string>
+<string name="translateBtn">translateBtn</string>
+<string name="prompt">Wybierz jezyk</string>
+</resources>
