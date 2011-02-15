@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, AnimationView!</string>
+    <string name="app_name">AnimationView</string>
+    <string name="simpleString">simple string</string>
+    <string name="quotedString">"Quoted String"</string>
+    <string name="doubleQuotedString">\"Double quoted string\"</string>
+    <string name="java_format_string">hello %2$s java format string. %1$s again</string>
+    <string name="tagHtmlString">Hello <b>Martin</b><u>Banasz</u><i>ynski</i></string>
+</resources>

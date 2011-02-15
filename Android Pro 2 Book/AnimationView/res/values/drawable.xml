@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<drawable name="red_rect">#f00</drawable>
+	<drawable name="blue_rect">#0000ff</drawable>
+</resources>
