@@ -15,11 +15,12 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
 import android.app.IntentService;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.net.Uri;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -27,17 +28,41 @@ public class RssService extends IntentService{
 
 	private String tag = "RssService";
 	private RssFeed rssFeed;
+	private static final int RSS_ID = 1;
     private static final String URL = "http://feeds.feedburner.com/RealMadrid_pl";
-
-	
+    
+//	private static final String URL = "http://www.pilka.pl/rss.xml";
+    
+    NotificationManager notificationManager = null ;
+    
 	public RssService() {
 		super("RssService");
 		Log.v(tag, "RssService()");
+		
 	}
 
 	@Override
+	public void onDestroy() {
+//		super.onDestroy();
+		Log.v(tag, "onDestroy SERVICE");
+	}
+	
+	@Override
 	protected void onHandleIntent(Intent intent) {
 		Log.v(tag, "onHandleIntent call");
+		
+		notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+		
+		//create notify in status bar - service managed
+		CharSequence text = "Downloading RSS...";
+		Notification rssServiceNotify = new Notification(R.drawable.icon,text,System.currentTimeMillis()); 
+		Intent sendIntent = new Intent();
+		PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, sendIntent, 0);
+		rssServiceNotify.setLatestEventInfo(getApplicationContext(), "TITLE", "CONTENTTEXT", pendingIntent);
+		notificationManager.notify(RSS_ID, rssServiceNotify);
+
+		
+		Log.v("notification send", "NOTIFY");
 		
 		rssFeed = getRSS(URL);
 		showFeed();
@@ -64,7 +89,6 @@ public class RssService extends IntentService{
 		remoteView.setTextViewText(R.id.bdw_w_days, sb.toString());
 		
 		
-		
 		AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
 		ComponentName componentName = new ComponentName(this, RssWidget.class);
 	
@@ -74,7 +98,14 @@ public class RssService extends IntentService{
 		
 		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 		remoteView.setOnClickPendingIntent(R.id.bdw_w_date, pendingIntent);
-		appWidgetManager.updateAppWidget(componentName, remoteView); // TEGO MI BRAKOWA£O !!!!!!!!!!! POCZYTAJ CO TO !!!!!!
+		
+		appWidgetManager.updateAppWidget(componentName, remoteView); 
+		
+		//stop service 
+		stopSelf();
+
+		//notify off
+		notificationManager.cancel(1);
 		
 	}
 

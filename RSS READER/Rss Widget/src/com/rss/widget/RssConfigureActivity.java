@@ -38,7 +38,7 @@ public class RssConfigureActivity extends Activity {
 		mSpinner = (Spinner) findViewById(R.id.spinner);
 		
 		ArrayAdapter<CharSequence> spinnerAdapter  =
-			ArrayAdapter.createFromResource(this, R.array.rss_source, android.R.layout.simple_spinner_item);
+			ArrayAdapter.createFromResource(this, R.array.rss_label, android.R.layout.simple_spinner_item);
 		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			
 		mSpinner.setAdapter(spinnerAdapter);
@@ -69,7 +69,6 @@ public class RssConfigureActivity extends Activity {
 			RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.rss_layout);
 		//	remoteViews.setTextViewText(R.id.bdw_w_name, mTextView.getText());
 			
-			//widgetManager.updateAppWidget(mAppWidgetId, remoteViews);
 			
 			//return intent
 			Intent returnIntent = new Intent();
@@ -86,7 +85,9 @@ public class RssConfigureActivity extends Activity {
 		@Override
 		public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 			Log.v(tag, "onItemSelected call");
-			String text = parent.getItemAtPosition(pos).toString();
+			
+			String text = getResources().getStringArray(R.array.rss_values)[pos];
+			
 			Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
 			
 			//set Text View

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="rss_label">
+		<item>realMadrid.pl</item>
+		<item>pilka.pl</item>
+		<item>sport.pl</item>
+	</string-array>
+	<string-array name="rss_values">
+		<item>http://feeds.feedburner.com/RealMadrid_pl</item>
+		<item>http://www.pilka.pl/rss.xml</item>
+		<item>http://rss.gazeta.pl/pub/rss/sport.xml</item>
+	</string-array>
+</resources>
